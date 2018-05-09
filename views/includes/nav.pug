@@ -1,0 +1,52 @@
+header.demo-header.mdl-layout__header.mdl-color--grey-100.mdl-color-text--grey-600
+    .mdl-layout__header-row(style='background-color: rgba(0, 0, 0, 0.79);')
+        span.mdl-layout-title(style='color: white;')=title
+        .mdl-layout-spacer
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable
+            label.mdl-button.mdl-js-button.mdl-button--icon(for='search', style='color: white;')
+                i.material-icons search
+            .mdl-textfield__expandable-holder
+                input#search.mdl-textfield__input(type='text', name='search', placeholder='Enter the Topic')
+                label.mdl-textfield__label(name='topic', placeholder='Enter the Topic', for='search') Enter your query...
+        button#hdrbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon(style='color: white;')
+            i.material-icons more_vert
+        ul.mdl-menu.mdl-js-menu.mdl-js-ripple-effect.mdl-menu--bottom-right(for='hdrbtn')
+            li.mdl-menu__item About
+            li.mdl-menu__item Contact
+            li.mdl-menu__item Legal information
+.demo-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
+    header.demo-drawer-header
+        img.demo-avatar(src='/images/user.jpg')
+        .demo-avatar-dropdown
+            span Admin
+            .mdl-layout-spacer
+            //- button#accbtn.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
+            //-     i.material-icons(role='presentation') arrow_drop_down
+            //-     span.visuallyhidden Accounts
+            //- ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect(for='accbtn')
+            //-     li.mdl-menu__item hello@example.com
+            //-     li.mdl-menu__item info@example.com
+            //-     li.mdl-menu__item
+            //-         i.material-icons add
+            //-         | Add another account...
+    nav.demo-navigation.mdl-navigation.mdl-color--blue-grey-800
+        a.mdl-navigation__link(href='/')
+            i.mdl-color-text--white-400.material-icons(role='presentation') home
+            | Home
+        a.mdl-navigation__link(href='/tweets')
+            i.mdl-color-text--white-400.material-icons(role='presentation') view_headline
+            | Tweets
+        a.mdl-navigation__link(href='/visualization/bar_index')
+            i.mdl-color-text--white-400.material-icons(role='presentation') timeline
+            | Analysis
+        a.mdl-navigation__link(href='/visualization/word_cloud')
+            i.mdl-color-text--white-400.material-icons(role='presentation') font_download
+            | Word Cloud
+        a.mdl-navigation__link(href='/storm')
+            i.mdl-color-text--white-400.material-icons(role='presentation') memory
+            | Storm
+        //- a.mdl-navigation__link(href='/comparison')
+        //-     i.mdl-color-text--white-400.material-icons(role='presentation') compare_arrows
+        //-     | Comparison
+        .mdl-layout-spacer
+

@@ -1,0 +1,21 @@
+//- index.pug
+doctype html
+html
+  include includes/head.pug
+  body
+    .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+        include includes/nav.pug
+        main.mdl-layout__content.mdl-color--grey-100
+            .mdl-grid.demo-content
+                .demo-cards-index.mdl-cell.mdl-cell--4-col.mdl-cell--8-col-tablet.mdl-grid.mdl-grid--no-spacing
+                    .demo-updates.mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--12-col-desktop
+                        .mdl-card__title.mdl-card--expand.mdl-color--blue-300
+                            h2.mdl-card__title-text Analysis
+                        .mdl-card__actions.mdl-card--border
+                            a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/analysis') Analysis
+                .demo-cards-index.mdl-cell.mdl-cell--4-col.mdl-cell--8-col-tablet.mdl-grid.mdl-grid--no-spacing
+                    .demo-updates.mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--12-col-desktop
+                        .mdl-card__title.mdl-card--expand.mdl-color--blue-300
+                            h2.mdl-card__title-text Tweets
+                        .mdl-card__actions.mdl-card--border
+                            a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/tweets') Tweets

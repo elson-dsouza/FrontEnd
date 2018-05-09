@@ -1,0 +1,224 @@
+doctype html
+html(lang='en')
+  head
+    link(href='http://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='http://getbootstrap.com/examples/justified-nav/justified-nav.css', rel='stylesheet')
+    style.
+      .axis path {
+      fill: none;
+      stroke: white;
+      shape-rendering: crispEdges;
+      stroke-width:5px;
+      }
+      .axis text {
+      font-family: Lato;
+      font-size: 13px;
+      }
+      body{
+      background : url("images/background5.jpg") ;
+      background-size: cover;
+      color: white;
+      }
+      h1.MainHeading{
+      text-align: left;
+      color: white;
+      font-size: 3em;
+      padding-top: 50px;
+      font-family: 'Montez' ,cursive;
+      position: relative;
+      -webkit-animation-name: MainHeading; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+      animation-name: MainHeading;
+      animation-duration: 8s;
+      }
+      @keyframes MainHeading {
+      0%   { left:600px; top:0px;}
+      100%  { left:0px; top:0px;}
+      }
+      a{
+      text-decoration: none;
+      background-color: transparent;
+      color:#ededed;
+      }
+      form{
+      background-color: rgba(0, 0, 0, 0.77);
+      border-radius: 25px;
+      padding:40px;
+      margin-top: 100px;
+      padding-bottom: 60px;
+      color: white;
+      box-shadow: 10px 10px 5px rgba(0,0,0,0.60)
+      }
+      .submitButton
+      {
+      color: #fff;
+      background-color: #c9302c !important ;
+      border-color: #ac2925;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+      padding: 10px 16px;
+      font-size: 18px;
+      border-radius: 6px;
+      }
+      .form-control{
+      background-color: rgba(0, 0, 0, 1);
+      color: white;
+      }
+      label{
+      font-size: 20px;
+      }
+      div.cont2{
+      margin-top: 10px;
+      position : relative;
+      padding: 10px;
+      margin-left: 10px;
+      height: 500px;
+      width: 500px;
+      float:left;
+      padding: 5px;
+      background-color:   rgb(0, 0, 0, 0.77);
+      border-radius: 25px;
+      transition: 2s;
+      vertical-align: middle;
+      text-align: center;
+      display: inline-block;
+      }
+      div.cont3{
+      margin-top: 10px;
+      position : relative;
+      padding: 10px;
+      margin-left: 10px;
+      height: 1000px;
+      width: 1000px;
+      float:left;
+      padding: 5px;
+      background-color:   rgb(0, 0, 0, 0.77);
+      border-radius: 25px;
+      transition: 2s;
+      vertical-align: middle;
+      text-align: center;
+      display: inline-block;
+      }
+      div.cont2:hover
+      {
+      border-radius: 100px;
+      background-color: black;
+      }
+      div.cont3:hover
+      {
+      border-radius: 100px;
+      background-color: black;
+      }
+      div.heading{
+      margin-left:150px;
+      }
+      }
+  body
+    .heading
+      h1.MainHeading(style='color:  rgb(26, 0, 0);') Social Media Data Analytics
+    .container
+      .row
+        .col-sm-offset-3.col-sm-6
+          form
+            h1 Data Analytics of microblogging Data
+            br
+            .form-group
+              label(for='exampleInputEmail1') Enter the Topic
+              input#exampleInputEmail1.form-control(type='email', placeholder='Topic')
+            button.submitButton(type='submit') Submit
+            br
+        br
+    br
+    br
+    br
+    .container
+      // <div class="jumbotron">
+      svg#visualisation(width='1000', height='500')
+      script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
+      script.
+        function InitChart() {
+        var data = !{JSON.stringify(data)};
+        var data2 = [{
+        "sale": "152",
+        "year": "2000"
+        }, {
+        "sale": "189",
+        "year": "2002"
+        }, {
+        "sale": "179",
+        "year": "2004"
+        }, {
+        "sale": "199",
+        "year": "2006"
+        }, {
+        "sale": "134",
+        "year": "2008"
+        }, {
+        "sale": "176",
+        "year": "2010"
+        }];
+        var vis = d3.select("#visualisation"),
+        WIDTH = 1000,
+        HEIGHT = 500,
+        MARGINS = {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 50
+        },
+        xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([2000, 2010]),
+        yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([134, 215]),
+        xAxis = d3.svg.axis()
+        .scale(xScale),
+        yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left");
+        vis.append("svg:g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+        .attr('stroke', 'white')
+        .call(xAxis);
+        vis.append("svg:g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+        .attr('stroke', 'white')
+        .call(yAxis);
+        vis.on('mouseover', function(obj) {
+        d3.select(this).attr('stroke', '#00688B');
+        }).on('mouseout', function(obj) {
+        d3.select(this).attr('stroke', '#87CEEB');
+        });
+        var lineGen = d3.svg.line()
+        .x(function(d) {
+        return xScale(d.year);
+        })
+        .y(function(d) {
+        return yScale(d.sale);
+        })
+        .interpolate("basis");
+        vis.append('svg:path')
+        .attr('d', lineGen(data))
+        .attr('stroke', 'green')
+        .attr('stroke-width', 2)
+        .attr('fill', 'none');
+        vis.append('svg:path')
+        .attr('d', lineGen(data2))
+        .attr('stroke', 'blue')
+        .attr('stroke-width', 2)
+        .attr('fill', 'none');
+        }
+        InitChart();
+      // </div>
+      br
+      br
+      br
+      .container
+        .cont2
+          h3(style='color:   rgb(255, 255, 255);') Graph 1
+        .cont2
+          h3(style='color:   rgb(255, 255, 255); ') Graph 2
+        .cont3
+          h3(style='color:   rgb(255, 255, 255); ') Comparison and Conclusion
+      br
+      br
+      br
+

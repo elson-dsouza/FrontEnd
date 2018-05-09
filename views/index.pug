@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p The message is: #{message}
+  canvas(id="myChart" width="400" height="400")
+  script(type="text/javascript")
+    |  var ctx = document.getElementById("myChart");
+    |  var mychart = new Chart(ctx, {
+    |    type: 'line',
+    |     data: {
+    |          labels:!{JSON.stringify(years)},
+    |          datasets: [{
+    |              label: 'sales',
+    |              data: [ #{sales} ],
+    |              backgroundColor: [
+    |                  'rgba(255, 99, 132, 0.2)'
+    |              ],
+    |              borderColor: [
+    |                  'rgba(255,99,132,1)'
+    |              ],
+    |              borderWidth: 1
+    |          }]
+    |      },
+    |      options: {
+    |          scales: {
+    |              yAxes: [{
+    |                  ticks: {
+    |                      beginAtZero:true
+    |                  }
+    |              }]
+    |          }
+    |      }
+    |  })

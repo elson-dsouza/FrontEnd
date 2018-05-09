@@ -1,0 +1,47 @@
+doctype html
+html
+  include includes/head.pug
+  body
+    .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+        include includes/nav.pug
+        main.mdl-layout__content.mdl-color--grey-100
+          .mdl-grid.demo-content
+            .mdl-cell.mdl-cell--12-col.mdl-cell--8-col-tablet.mdl-grid.mdl-shadow--2dp.mdl-color--white(style="padding:30px;")
+                canvas(id="myChart")
+                script(type="text/javascript")
+                  |  var ctx = document.getElementById("myChart");
+                  |  var mychart = new Chart(ctx, {
+                  |    type: 'line',
+                  |     data: {
+                  |          datasets: [{
+                  |              label: 'topic potential',
+                  |              data: !{JSON.stringify(data)},
+                  |              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  |              borderColor: 'rgba(255, 99, 132, 0.2)',
+                  |              fill: false,
+                  |          }, {
+                  |              label: 'asset bubble',
+                  |              data: !{JSON.stringify(data1)},
+                  |              fill: false,
+                  |              backgroundColor: 'rgba(29, 99, 255, 0.2)',
+                  |              borderColor: 'rgba(29, 99, 132, 0.2)',
+                  |          }]
+                  |      },
+                  |      options: {
+                  |          scales: {
+                  |              xAxes: [{
+                  |                   type: 'time',
+                  |                   time: {
+                  |                        unit: 'day',
+                  |                        max: '2018-04-16T23:00:00.000Z'
+                  |                   },
+                  |                }],
+                  |              yAxes: [{
+                  |                  ticks: {
+                  |                      beginAtZero:true,
+                  |                      type:'linear',
+                  |                  }
+                  |              }]
+                  |          }
+                  |      }
+                  |  })

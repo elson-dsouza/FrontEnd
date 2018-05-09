@@ -1,0 +1,29 @@
+doctype html
+html
+  include includes/head.pug
+  body
+    .demo-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
+        include includes/nav.pug
+        main.mdl-layout__content.mdl-color--grey-100
+          .mdl-grid
+            .demo-updates.mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--4-col-desktop.bar_index_card
+                .mdl-card__title.mdl-card--expand.mdl-color--blue-300
+                    h2.mdl-card__title-text Tweets
+                .mdl-card__supporting-text.mdl-color-text--grey-600
+                    p Tweets to be shown
+                .mdl-card__actions.mdl-card--border
+                    a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='#{title}') Show
+            .demo-updates.mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--4-col-desktop.heat_map_card
+                .mdl-card__title.mdl-card--expand.mdl-color--blue-300
+                    h2.mdl-card__title-text Visualization
+                .mdl-card__supporting-text.mdl-color-text--grey-600
+                    p Tweets to be shown
+                .mdl-card__actions.mdl-card--border
+                    a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/visualization/heat_map') Show
+            .demo-updates.mdl-card.mdl-shadow--2dp.mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--4-col-desktop.word_cloud_card
+                .mdl-card__title.mdl-card--expand.mdl-color--blue-300
+                    h2.mdl-card__title-text Comparison
+                .mdl-card__supporting-text.mdl-color-text--grey-600
+                    p Tweets to be shown
+                .mdl-card__actions.mdl-card--border
+                    a.mdl-button.mdl-js-button.mdl-js-ripple-effect(href='/visualization/word_cloud') Show
