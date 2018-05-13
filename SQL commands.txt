@@ -1,0 +1,30 @@
+CREATE KEYSPACE project WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
+DESCRIBE KEYSPACES;
+USE project;
+CREATE TABLE topic(
+   id uuid PRIMARY KEY,
+   name text
+);
+INSERT INTO topic (id, name) VALUES (uuid(), 'BJP');
+INSERT INTO topic (id, name) VALUES (uuid(), 'Congress');
+INSERT INTO topic (id, name) VALUES (uuid(), 'JDS');
+SELECT * from topic;
+CREATE TABLE tweet(
+   time text PRIMARY KEY,
+   topicId uuid,
+   tweet text,
+   tweetPotential text
+);
+CREATE TABLE topicSeries(
+   time timestamp,
+   topicId text,
+   topicPotential double,
+   A double,
+   B double,
+   PRIMARY KEY (topicId, time),
+) WITH CLUSTERING ORDER BY (time ASC);
+drop table topicseries;
+select * from topicseries;
+select count(*) from topicseries;
+SELECT * FROM topicseries where topicid = 'bjp_karnataka' order by time desc limit 10;
+INSERT INTO topicSeries (time, topicId, topicPotential, A, B) VALUES (time, topicId, topicPotential, A, B);
